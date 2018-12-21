@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EXAMPLE</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                overflow: hidden;
+            }
+
+            .canvas-container {
+                height: 100%;
+                width: 100%;
+            }
+
+            .popup-3d {
+                color: #fff;
+                font-family: 'Pacifico', cursive;
+                font-size: 10rem;
+                pointer-events: none;
+            }
+
+        </style>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Pacifico'>
+    </head>
+    <body>
+        <div class='canvas-container'></div>
+
+        <div class='popup-3d'>С Новым Годом!</div>
+
+        <script src='https://unpkg.com/three@0.99.0/build/three.min.js'></script>
+        <script src='https://unpkg.com/three@0.99.0/examples/js/loaders/OBJLoader.js'></script>
+        <script src='https://unpkg.com/three@0.99.0/examples/js/controls/OrbitControls.js'></script>
+        <script src='https://unpkg.com/three@0.99.0/examples/js/renderers/CSS3DRenderer.js'></script>
+        <script src='https://unpkg.com/animejs@2.2.0/anime.min.js'></script>
+        <script src='./main.js'></script>
+    </body>
+</html>
