@@ -58,7 +58,13 @@ function initLights() {
     SCENE.add(ambient);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff);
-    directionalLight.position.set(0, 1, 1);
+    directionalLight.position.set(0, 100, 100);
+    directionalLight.castShadow = true;
+    directionalLight.shadow.camera.left   = -50;
+    directionalLight.shadow.camera.right  =  50;
+    directionalLight.shadow.camera.top    =  50;
+    directionalLight.shadow.camera.bottom = -50;
+
     SCENE.add(directionalLight);
 }
 
@@ -73,6 +79,8 @@ function initRenderer() {
     RENDERER = new THREE.WebGLRenderer({ alpha: true });
     RENDERER.setPixelRatio(window.devicePixelRatio);
     RENDERER.setSize(window.innerWidth, window.innerHeight);
+    RENDERER.shadowMap.enabled = true;
+    RENDERER.shadowMapSort = true;
 }
 
 
@@ -146,6 +154,9 @@ function loadModel() {
     OBJ_LOADER.load('./model.obj', (object) => {
         object.traverse(function(child) {
             if (child instanceof THREE.Mesh) {
+                child.castShadow = true;
+                child.receiveShadow = true;
+
                 switch (child.material.name) {
                     case 'Christmas_Tree':
                         child.material.map = TEXTURE;
