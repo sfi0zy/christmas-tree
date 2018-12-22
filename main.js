@@ -222,8 +222,6 @@ function initPopups() {
     popup.scale.y = 0.05;
     popup.scale.z = 0.05;
 
-    console.log(popup);
-
     SCENE.add(popup);
 }
 
